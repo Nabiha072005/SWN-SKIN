@@ -80,11 +80,13 @@ The recommendation logic runs in the **Node.js backend**, not in the browser. Po
 
 The recommendation engine produces a unique list of relevant ingredients. This is a rules-based demonstration, not a medical diagnosis or individualized dermatological advice.
 
-## Run locally
+## Run Locally
 
-**Prerequisites:** Node.js/npm and a running PostgreSQL installation.
+**Prerequisites:** Node.js, npm, and PostgreSQL.
 
-### 1. Clone and install
+### 1. Clone and Install
+
+Clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/Nabiha072005/SWN-SKIN.git
@@ -92,57 +94,79 @@ cd SWN-SKIN
 npm install
 ```
 
-### 2. Set up PostgreSQL
+### 2. Set Up PostgreSQL
 
-Create a PostgreSQL database and a database user with permissions to create and access tables. The project expects a table named `questionnaire_results`.
+Install PostgreSQL locally and ensure the database service is running.
 
-The following is an **example schema compatible with the shared controller**; verify it against the original database definition before using it as the project's canonical schema:
+On Ubuntu, open the PostgreSQL terminal:
 
-```sql
-CREATE TABLE IF NOT EXISTS questionnaire_results (
-    id SERIAL PRIMARY KEY,
-    skin_type TEXT NOT NULL,
-    concerns TEXT[] NOT NULL,
-    acne_type TEXT NOT NULL,
-    recommended_ingredients TEXT[] NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+```bash
+sudo -u postgres psql
 ```
 
-Run the SQL in your chosen PostgreSQL database (for example, with `psql`). The database does **not** need any previous users' questionnaire records to generate new recommendations.
+Create a database user and database:
 
-### 3. Configure environment variables
+```sql
+CREATE USER swn_user WITH PASSWORD 'choose_a_strong_local_password';
+CREATE DATABASE swn_skin OWNER swn_user;
+```
 
-Copy the included example configuration:
+Exit PostgreSQL:
+
+```sql
+\q
+```
+
+Initialize the database tables using the provided SQL schema:
+
+```bash
+psql -h localhost -U swn_user -d swn_skin -f db/schema.sql
+```
+
+This creates the database structure required for the recommendation engine. No existing questionnaire records are needed.
+
+**Note:** The commands above are intended for Ubuntu. PostgreSQL installation and administration commands may differ on macOS or Windows.
+
+### 3. Configure Environment Variables
+
+Copy the provided example configuration:
 
 ```bash
 cp .env.example .env
 ```
 
-Set the database connection variables in your local `.env` file to match your PostgreSQL installation. Generate your own session secret. Configure email-service credentials only if you want to test outgoing newsletter emails. **Never commit real credentials or database backups.**
+Update the database connection settings in `.env` to match your local PostgreSQL installation.
 
-### 4. Start the server
+Generate your own session secret. Email-service credentials are only required if you want to test outgoing newsletter emails.
+
+**Never commit real credentials or database backups to GitHub.**
+
+### 4. Start the Server
+
+Run:
 
 ```bash
-npm start
+node server.js
 ```
 
-Or, for automatic restarts during development:
+Open the local URL displayed in your terminal.
 
-```bash
-npm run dev
-```
+You can now explore the website, complete the skincare questionnaire, and receive personalized ingredient recommendations.
 
-Open the local URL printed by the server (the port depends on your configuration). Complete the questionnaire to test both the PostgreSQL write and read paths.
+### 5. Verify the Database Integration
 
-### 5. Verify the database flow
+To verify the full-stack recommendation workflow, open your browser's **Developer Tools → Network** tab and submit the questionnaire.
 
-In your browser's Developer Tools → Network tab, submit the questionnaire and look for:
+You should observe:
 
-- `POST /api/questionnaire` → `201 Created`
-- `GET /api/questionnaire/<result-id>` → `200 OK`
+| Request | Expected Response | Purpose |
+|---|---|---|
+| `POST /api/questionnaire` | `201 Created` | Generates and stores questionnaire results |
+| `GET /api/questionnaire/:id` | `200 OK` | Retrieves saved recommendations from PostgreSQL |
 
-The GET response contains `recommended_ingredients`, which the frontend displays.
+The GET endpoint returns the saved `recommended_ingredients`, which the frontend dynamically renders on the questionnaire results screen.
+
+This demonstrates the complete **frontend → backend → recommendation engine → PostgreSQL write → PostgreSQL read → frontend rendering** workflow.
 
 ## Project structure
 
@@ -152,6 +176,7 @@ SWN-SKIN/
 │   └── questionnaireController.js   # Questionnaire API logic + SQL queries
 ├── db/
 │   └── pool.js                      # PostgreSQL connection pool
+    └── schema.sql
 ├── public/
 │   ├── images/
 │   ├── pages/                       # Shop, quiz, FAQ, checkout, etc.
@@ -176,15 +201,3 @@ My primary contribution was the **full-stack personalized ingredient recommendat
 ## Team and attribution
 
 Originally developed as a **collaborative course project** by **Safa, Najah, Waslat, and Nabiha**. The website contains shared work; this repository is a personal portfolio copy for continued learning and development. The description of my contribution above is not a claim of sole authorship of the entire website.
-
-## Future improvements
-
-- Deploy the full-stack application using cloud hosting and managed PostgreSQL.
-- Improve newsletter popup behavior by persisting dismissals between page visits.
-- Add automated tests and clearer user-facing API error messages.
-- Improve accessibility, validation, and mobile responsiveness.
-- Evaluate secure email delivery options for hosted environments.
-
----
-
-*SWN-SKIN is an educational project and not a substitute for professional skincare advice.*
