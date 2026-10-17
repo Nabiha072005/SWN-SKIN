@@ -1,0 +1,99 @@
+<!--
+--Authors: Safa, Najah, Waslat, Nabiha
+--Date: 04/28/26
+--File: shop2.html
+--Description: This is the html file for our shop page 2.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWN Skin / Shop</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="quiz.html">Questionnaire</a>
+            <a href="recommendation.html">Recommendation</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <header class="shop-header">
+        <div class="shop-search">
+            <input type="text" id="searchInput" placeholder="Search">
+        </div>
+
+        <h1 class="shop-title">Shop</h1>
+
+        
+    </header>
+
+    <div class="shop-pagination">
+        <a href="shop.html">1</a>
+        <a href="shop2.html" class="active">2</a>
+        <a href="shop3.html">3</a>
+    </div>
+
+    <section class="shop-products shop-products-grid">
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/brightningserum.png" alt="Brightening Serum">
+            <p class="product-desc"><strong>Brightening Serum</strong><br>With Niacinamide and Alpha Arbutin. Brightens skin tone and fades dark spots. 30 ml.</p>
+            <button class="add-btn" onclick="addToCart('Brightening Serum', 38, 'brightningserum.png')">Add to bag $38</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/antiagingcream.png" alt="Anti Aging Night Cream">
+            <p class="product-desc"><strong>Anti Aging Night Cream</strong><br>Firms, nourishes, and reduces fine lines while you sleep. 50 ml.</p>
+            <button class="add-btn" onclick="addToCart('Anti Aging Night Cream', 42, 'antiagingcream.png')">Add to bag $42</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/handcream.png" alt="Hand Cream">
+            <p class="product-desc"><strong>Hand Cream</strong><br>Nourishes, hydrates, and softens for smooth, beautiful hands. 50 ml.</p>
+            <button class="add-btn" onclick="addToCart('Hand Cream', 18, 'handcream.png')">Add to bag $18</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/eyecream.png" alt="Eye Renewal Cream">
+            <p class="product-desc"><strong>Eye Renewal Cream</strong><br>A gentle cream that reduces puffiness and dark circles.</p>
+            <button class="add-btn" onclick="addToCart('Eye Renewal Cream', 32, 'eyecream.png')">Add to bag $32</button>
+        </div>
+
+    </section>
+
+    <div id="bagOverlay" class="bag-overlay" onclick="closeBag()"></div>
+
+    <div id="bagSidebar" class="bag-sidebar">
+        <div class="bag-header">
+            <h2>SHOPPING BAG</h2>
+            <button class="bag-close-btn" onclick="closeBag()">×</button>
+        </div>
+
+        <div id="bagItems">
+            <p class="bag-empty">Your bag is empty.</p>
+        </div>
+
+        <div id="bagSummary" class="bag-summary">
+            <div class="bag-subtotal-row">
+                <span>SUBTOTAL</span>
+                <span id="bagTotal">$0.00</span>
+            </div>
+
+            <button class="bag-checkout-btn" onclick="goToCheckout()">REVIEW BAG & CHECKOUT</button>
+            <button class="bag-continue-btn" onclick="closeBag()">CONTINUE SHOPPING</button>
+        </div>
+    </div>
+
+
+    <script src="../shop.js"></script>
+</body>
+</html>

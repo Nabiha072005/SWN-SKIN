@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWN Skin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home">
+
+  
+  <header class="top-bar">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/shop.html">Shop</a>
+      <a href="pages/quiz.html">Questionnaire</a>
+      <a href="pages/recommendation.html">Recommendation</a>
+      <a href="pages/faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  
+  <header class="page-header">
+    
+    <div class="icon-area">
+      <button id="cart-login-btn" class="icon-button">
+        <img src="images/Login icon.png" alt="Cart">
+      </button>
+
+      <button id="settings-btn" class="icon-button">
+        <img src="images/System preferences icon.png" alt="Settings">
+      </button>
+    </div>
+  </header>
+
+
+  <div class="home-message">
+    <p>Skincare made to your touch</p>
+  </div>
+
+  
+  <div id="popupAd" class="popup-overlay">
+    <div class="popup-box">
+      <span class="close-btn" onclick="closeAd()">&times;</span>
+
+      <h1 class="logo">SWN SKIN</h1>
+      <h2 class="discount">ENJOY 10% OFF</h2>
+
+      <p class="offer-text">
+        YOUR FIRST $20+ ORDER<br>WHEN YOU SIGN UP
+      </p>
+
+      <p class="small-text">
+        By entering your email, you agree to receive promotional emails.
+      </p>
+
+      
+      <form id="signupForm" class="popup-form">
+        <input type="email" id="email" placeholder="EMAIL" required>
+        <button type="submit" class="continue-btn">CONTINUE</button>
+      </form>
+
+      <p id="formMessage"></p>
+      <p class="no-thanks" onclick="closeAd()">NO THANKS</p>
+    </div>
+  </div>
+
+  
+  <div id="auth-choice-popup" class="login-popup-overlay hidden">
+    <div class="login-popup-box">
+      <button id="close-auth-choice-popup" class="login-close-btn">&times;</button>
+
+      <h2 class="login-popup-title">Sign In</h2>
+      <p class="login-popup-text">
+        Sign in or create an account to continue shopping with SWN Skin.
+      </p>
+
+      <div class="auth-choice-buttons">
+        <button id="open-signin-form" class="login-signin-btn">Sign In</button>
+        <button id="open-create-form" class="create-account-btn">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="auth-form-popup" class="login-popup-overlay hidden">
+    <div class="login-popup-box">
+      <button id="close-auth-form-popup" class="login-close-btn">&times;</button>
+
+      <h2 id="auth-form-title" class="login-popup-title">Welcome to SWN!</h2>
+      <p id="auth-form-text" class="login-popup-text">Enter your details below.</p>
+
+      <form id="auth-form" class="login-form">
+        <input type="text" id="auth-first-name" placeholder="First Name" class="login-input">
+        <input type="text" id="auth-last-name" placeholder="Last Name" class="login-input">
+        <input type="email" id="auth-email" placeholder="Email Address" class="login-input" required>
+        <input type="password" id="auth-password" placeholder="Password" class="login-input" required>
+
+        <button type="submit" id="auth-submit-btn" class="login-signin-btn">
+          Continue
+        </button>
+
+        <p id="auth-message" class="auth-message"></p>
+      </form>
+    </div>
+  </div>
+
+ 
+  <div id="theme-popup" class="theme-popup hidden">
+    <button id="light-mode-btn" class="theme-option-btn">Light Mode</button>
+    <button id="dark-mode-btn" class="theme-option-btn">Dark Mode</button>
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

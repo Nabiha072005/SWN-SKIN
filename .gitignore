@@ -1,0 +1,17 @@
+.env
+node_modules/
+__pycache__/
+*.log
+.DS_Store
+.vscode/
+.idea/
+dist/
+build/
+*.pyc
+*.pyo
+.env.*
+!.env.example
+backup.sql
+backup.tar
+newsletter-signups.json
+users.json

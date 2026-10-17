@@ -1,0 +1,99 @@
+<!--
+--Authors: Safa, Najah, Waslat, Nabiha
+--Date: 04/28/26
+--File: shop3.html
+--Description: This is the html file for our shop page 3.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWN Skin / Shop</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="quiz.html">Questionnaire</a>
+            <a href="recommendation.html">Recommendation</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <header class="shop-header">
+        <div class="shop-search">
+            <input type="text" id="searchInput" placeholder="Search">
+        </div>
+
+        <h1 class="shop-title">Shop</h1>
+
+        
+    </header>
+
+    <div class="shop-pagination">
+        <a href="shop.html">1</a>
+        <a href="shop2.html">2</a>
+        <a href="shop3.html" class="active">3</a>
+    </div>
+
+    <section class="shop-products shop-products-grid">
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/vitaminc.png" alt="Brightening Vitamin C Serum">
+            <p class="product-desc"><strong>Brightening Vitamin C Serum</strong><br>Brightens complexion, reduces dark spots, and provides antioxidant protection.</p>
+            <button class="add-btn" onclick="addToCart('Brightening Vitamin C Serum', 40, 'vitaminc.png')">Add to bag $40</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/cleanser.png" alt="Gentle Daily Cleanser">
+            <p class="product-desc"><strong>Gentle Daily Cleanser</strong><br>For sensitive skin. Gentle and soothing daily face wash.</p>
+            <button class="add-btn" onclick="addToCart('Gentle Daily Cleanser', 25, 'cleanser.png')">Add to bag $25</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/repaircream.png" alt="Barrier Repair Cream">
+            <p class="product-desc"><strong>Barrier Repair Cream</strong><br>Strengthens the skin barrier and locks in moisture all day.</p>
+            <button class="add-btn" onclick="addToCart('Barrier Repair Cream', 36, 'repaircream.png')">Add to bag $36</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/hyaluronicserum.png" alt="Hydrating Hyaluronic Serum">
+            <p class="product-desc"><strong>Hydrating Hyaluronic Serum</strong><br>Deep hydration that helps skin feel smoother and plumper.</p>
+            <button class="add-btn" onclick="addToCart('Hydrating Hyaluronic Serum', 40, 'hyaluronicserum.png')">Add to bag $40</button>
+        </div>
+
+    </section>
+
+    <div id="bagOverlay" class="bag-overlay" onclick="closeBag()"></div>
+
+    <div id="bagSidebar" class="bag-sidebar">
+        <div class="bag-header">
+            <h2>SHOPPING BAG</h2>
+            <button class="bag-close-btn" onclick="closeBag()">×</button>
+        </div>
+
+        <div id="bagItems">
+            <p class="bag-empty">Your bag is empty.</p>
+        </div>
+
+        <div id="bagSummary" class="bag-summary">
+            <div class="bag-subtotal-row">
+                <span>SUBTOTAL</span>
+                <span id="bagTotal">$0.00</span>
+            </div>
+
+            <button class="bag-checkout-btn" onclick="goToCheckout()">REVIEW BAG & CHECKOUT</button>
+            <button class="bag-continue-btn" onclick="closeBag()">CONTINUE SHOPPING</button>
+        </div>
+    </div>
+
+    
+    <script src="../shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!--
+--Authors: Safa, Najah, Waslat, Nabiha
+--Date: 04/28/26
+--File: shop.html
+--Description: This is the html file for our shop page 1.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWN Skin / Shop</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="quiz.html">Questionnaire</a>
+            <a href="recommendation.html">Recommendation</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <header class="shop-header">
+        <div class="shop-search">
+            <input type="text" id="searchInput" placeholder="Search">
+        </div>
+
+        <h1 class="shop-title">Shop</h1>
+
+    
+    </header>
+
+    <div class="shop-pagination">
+        <a href="shop.html" class="active">1</a>
+        <a href="shop2.html">2</a>
+        <a href="shop3.html">3</a>
+    </div>
+
+    <section class="shop-products shop-products-grid">
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/niacinamide.png" alt="Hydrating Niacinamide Serum">
+            <p class="product-desc"><strong>Hydrating Niacinamide Serum</strong><br>Supports the skin barrier, minimizes pores, and helps control excess oil.</p>
+            <button class="add-btn" onclick="addToCart('Hydrating Niacinamide Serum', 35, 'niacinamide.png')">Add to bag $35</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/sunscreen.png" alt="Swan Skin Sunscreen SPF 50+">
+            <p class="product-desc"><strong>Swan Skin Sunscreen SPF 50+</strong><br>Broad spectrum, very high protection sunscreen for all skin types.</p>
+            <button class="add-btn" onclick="addToCart('Swan Skin Sunscreen SPF 50+', 28, 'sunscreen.png')">Add to bag $28</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/eyepatch.png" alt="Brightening Eye Patches">
+            <p class="product-desc"><strong>Brightening Eye Patches</strong><br>With Niacinamide and Hyaluronic Acid. Reduces puffiness and dark circles. 60 patches.</p>
+            <button class="add-btn" onclick="addToCart('Brightening Eye Patches', 22, 'eyepatch.png')">Add to bag $22</button>
+        </div>
+
+        <div class="product-card product-card-full">
+            <img class="product-img" src="../images/collagen.png" alt="Collagen Peptides">
+            <p class="product-desc"><strong>Collagen Peptides</strong><br>Hydrolyzed collagen that supports skin elasticity, hydration, and youthful glow.</p>
+            <button class="add-btn" onclick="addToCart('Collagen Peptides', 45, 'collagen.png')">Add to bag $45</button>
+        </div>
+
+    </section>
+
+    <div id="bagOverlay" class="bag-overlay" onclick="closeBag()"></div>
+
+    <div id="bagSidebar" class="bag-sidebar">
+        <div class="bag-header">
+            <h2>SHOPPING BAG</h2>
+            <button class="bag-close-btn" onclick="closeBag()">×</button>
+        </div>
+
+        <div id="bagItems">
+            <p class="bag-empty">Your bag is empty.</p>
+        </div>
+
+        <div id="bagSummary" class="bag-summary">
+            <div class="bag-subtotal-row">
+                <span>SUBTOTAL</span>
+                <span id="bagTotal">$0.00</span>
+            </div>
+
+            <button class="bag-checkout-btn" onclick="goToCheckout()">REVIEW BAG & CHECKOUT</button>
+            <button class="bag-continue-btn" onclick="closeBag()">CONTINUE SHOPPING</button>
+        </div>
+    </div>
+
+
+
+    <script src="../shop.js"></script>
+</body>
+</html>

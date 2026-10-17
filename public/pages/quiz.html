@@ -1,0 +1,192 @@
+<!--
+--Authors: Safa, Najah, Waslat, Nabiha
+--Date: 04/05/26
+--File: quiz.html
+--Description: This is the html file for our quiz page.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWN Skin - Questionnaire</title>
+    <!-- connecting html to the css file-->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+ <header class="top-bar">
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="quiz.html">Questionnaire</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+    
+</header>
+
+<header class="page-header">
+
+    <div class="title-area">
+        <h1>Questionnaire</h1>
+    </div>
+
+    
+</header>
+
+    <main>
+        <section id="intro-screen" class="screen">
+            <h2>Welcome to Our Skincare Questionnaire</h2>
+            <p>Answer a few quick questions to help us understand your skin</p>
+            <button type="button" id="start-btn">Start Quiz</button>
+        </section>
+
+        <section id="skin-type-screen" class="screen hidden">
+            <h2>What is your skin type?</h2>
+            <p>Select one option. Click on the text to view an example image.</p>
+            <div class="skin-type-options">
+                <div class="option">
+                    <input type="radio" id="skin-normal" name="skin-type" value="normal" />
+                    <button type="button" class="skin-option" data-skin="normal">Normal</button>
+                </div>
+
+                <div class="option">
+                    <input type="radio" id="skin-dry" name="skin-type" value="dry" />
+                    <button type="button" class="skin-option" data-skin="dry">Dry</button>
+                </div>
+
+                <div class="option">
+                    <input type="radio" id="skin-oily" name="skin-type" value="oily" />
+                    <button type="button" class="skin-option" data-skin="oily">Oily</button>
+                </div>
+
+                <div class="option">
+                    <input type="radio" id="skin-combination" name="skin-type" value="combination" />
+                    <button type="button" class="skin-option" data-skin="combination">Combination</button>
+                </div>
+                
+            </div>
+
+            <div id="skin-type-popup" class="hidden">
+                <button type="button" id="close-skin-type-popup">Close</button>
+                <img src="../images/normal skin.png" alt="Normal skin illustration" id="normal-image" />
+                <img src="../images/dry skin.png" alt="Dry skin illustration" id="dry-image" />
+                <img src="../images/oily skin.png" alt="Oily skin illustration" id="oily-image" />
+                <img src="../images/combination skin.png" alt="Combination skin illustration" id="combination-image" />
+            </div>
+            <button type="button" id="skin-type-next-btn">Next</button>
+            <p id="skin-type-error" class="error-message hidden">
+                Please select your skin type before continuing.
+            </p>
+        </section>
+
+        <section id="skin-concern-screen" class="screen hidden">
+             <h2>What are your skin concerns?</h2>
+            <p>You may pick more than one</p>
+            <div class="skin-concern-options">
+                <div class="choose">
+                    <input type="checkbox" id="dryness" name="skin-concern" value="dryness" />
+                    <button type="button" class="skin-concern" data-concern="dryness">Dryness</button>
+                </div>
+
+                <div class="choose">
+                    <input type="checkbox" id="oiliness" name="skin-concern" value="oiliness" />
+                    <button type="button" class="skin-concern" data-concern="oiliness">Oiliness</button>
+                </div>
+                
+                <div class="choose">
+                    <input type="checkbox" id="pores" name="skin-concern" value="pores" />
+                    <button type="button" class="skin-concern" data-concern="pores">Pores</button>
+                </div>
+
+                <div class="choose">
+                    <input type="checkbox" id="hyperpigmentation" name="skin-concern" value="hyperpigmentation" />
+                    <button type="button" class="skin-concern" data-concern="hyperpigmentation">Hyperpigmentation</button>
+                </div>
+ 
+                <div class="choose">
+                    <input type="checkbox" id="dullness" name="skin-concern" value="dullness" />
+                    <button type="button" class="skin-concern" data-concern="dullness">Dullness</button>
+                </div>
+
+                
+            </div>
+
+            <div id="skin-concern-popup" class="hidden">
+                <button type="button" id="close-concern-popup">Close</button>
+                <img src="../images/dryness.png" alt="Dryness illustration" id="dryness-image" />
+                <img src="../images/oiliness.png" alt="Oiliness illustration" id="oiliness-image" />
+                <img src="../images/pores.png" alt="Pores illustration" id="pores-image" />
+                <img src="../images/hyperpigmentation.png" alt="Hyperpigmentation illustration" id="hyperpigmentation-image" />
+                <img src="../images/dullness.png" alt="Dullnes illustration" id="dullness-image" />
+            </div>
+        
+        <button type="button" id="skin-concern-next-btn">Next</button>
+        <p id="skin-concern-error" class="error-message hidden">
+            Please select at least one skin concern before continuing.
+        </p>
+        </section>
+
+        <section id="acne-screen" class="screen hidden">
+            <h2>Do you have acne?</h2>
+            <div class="acne-options">
+                <div class="choose">
+                    <input type="radio" id="hormonal" name="acne" value="hormonal" />
+                    <button type="button" class="acne" data-acne="hormonal">Hormonal</button>
+                </div>
+
+                <div class="choose">
+                    <input type="radio" id="comedonal" name="acne" value="comedonal" />
+                    <button type="button" class="acne" data-acne="comedonal">Comedonal</button>
+                </div>
+                
+                <div class="choose">
+                    <input type="radio" id="inflammatory" name="acne" value="inflammatory" />
+                    <button type="button" class="acne" data-acne="inflammatory">Inflammatory</button>
+                </div>
+
+                <div class="choose">
+                    <input type="radio" id="cystic" name="acne" value="cystic" />
+                    <button type="button" class="acne" data-acne="cystic">Cystic</button>
+                </div>
+
+                <div class="choose">
+                    <input type="radio" id="no-acne" name="acne" value="no-acne" />
+                    <label for="no-acne" class="no-acne-label">I don't have acne</label>
+                </div>
+
+            </div>
+
+            <div id="acne-popup" class="hidden">
+                <button type="button" id="close-acne-popup">Close</button>
+                <img src="../images/hormonal.png" alt="Hormonal acne illustration" id="hormonal-image" />
+                <img src="../images/comedonal.png" alt="Comedonal acne illustration" id="comedonal-image" />
+                <img src="../images/inflammatory.png" alt="Inflammatory acne illustration" id="inflammatory-image" />
+                <img src="../images/cystic.png" alt="Cystic acne illustration" id="cystic-image" />
+            </div>
+        
+        <button type="button" id="acne-next-btn">Next</button>
+        <p id="acne-error" class="error-message hidden">
+            Please select an acne option before continuing.
+        </p>
+        </section>
+
+         <section id="thank-you-screen" class="screen hidden">
+            <h2>Thank you for completing the questionnaire!</h2>
+            <p>Based on your answers, here are some ingredients to look for:</p>
+
+        <!-- This makes the recommended ingredients into a list with the dots next to the item -->    
+        <ul id="recommended-ingredients-list"></ul>
+
+         <button type="button" id="go-to-recommendation-btn">Go to Recommendation Page</button>
+        </section>
+
+
+    </main>
+
+
+</body>
+<script src="../script.js"></script>
+</html>
